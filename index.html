@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b3c73">
+  <meta name="description" content="Discover and request bookings with publicly listed resorts in Bongabon, Nueva Ecija—all in one place.">
+  <title>SevenScale Digital — Bongabon Resort Directory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#search">Skip to resort search</a>
+
+  <header class="topbar" id="top">
+    <a class="logo" href="#top" aria-label="SevenScale Digital home">
+      <span class="logo-mark" aria-hidden="true">7</span>
+      <span class="logo-word">SevenScale Digital</span>
+      <span class="logo-place">Bongabon Resorts</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#resorts">Resorts</a>
+      <a href="#how">How it works</a>
+    </nav>
+    <button class="my-bookings" id="open-bookings" type="button">
+      My requests <span class="request-count" id="request-count">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="search-hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="kicker">The local way to get away</p>
+        <h1 id="hero-title">Stay local.<br><em>Discover more.</em></h1>
+        <p>Search, compare, and request a stay at Bongabon resorts without jumping between different platforms.</p>
+        <div class="hero-stats" aria-label="Directory information">
+          <span><strong id="hero-count">20</strong> public resort listings</span>
+          <span><strong>1</strong> easy booking request</span>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="https://cdns.app/wgsdkw2F/assets/image/properties/9f0f818098e06bf86dbf4c449977795a_1655282123.jpg" alt="Blue swimming pool and cottages at Villa Liza Resort in Bongabon" referrerpolicy="no-referrer">
+        <figcaption>Villa Liza Resort · Bongabon</figcaption>
+      </figure>
+
+      <form class="search-panel" id="search" aria-label="Search Bongabon resorts">
+        <label>
+          <span>Check-in</span>
+          <input type="date" id="checkin" required>
+        </label>
+        <label>
+          <span>Check-out</span>
+          <input type="date" id="checkout" required>
+        </label>
+        <label>
+          <span>Guests</span>
+          <select id="guests">
+            <option value="2">2 guests</option>
+            <option value="4" selected>4 guests</option>
+            <option value="6">6 guests</option>
+            <option value="8">8 guests</option>
+            <option value="10">10+ guests</option>
+          </select>
+        </label>
+        <button class="search-button" type="submit">
+          <span>Search stays</span>
+          <span aria-hidden="true">→</span>
+        </button>
+        <p class="form-error" id="date-error" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="directory" id="resorts" aria-labelledby="results-title">
+      <div class="directory-head">
+        <div>
+          <p class="kicker green">Explore Bongabon</p>
+          <h2 id="results-title">Find your kind of escape.</h2>
+          <p id="results-summary" aria-live="polite">20 resort listings for 4 guests</p>
+        </div>
+        <div class="updated-note">
+          <span class="status-dot" aria-hidden="true"></span>
+          Public sources reviewed · Sep 4, 2026
+        </div>
+      </div>
+
+      <div class="filter-row" aria-label="Resort filters">
+        <div class="filter-chips" id="filter-chips">
+          <button class="chip active" type="button" data-filter="all">All stays</button>
+          <button class="chip" type="button" data-filter="private">Private pool</button>
+          <button class="chip" type="button" data-filter="cabin">Cabin</button>
+          <button class="chip" type="button" data-filter="family">Family stays</button>
+          <button class="chip" type="button" data-filter="daytour">Day tour</button>
+        </div>
+        <label class="budget-filter">
+          <span>Budget</span>
+          <select id="budget">
+            <option value="all">Any price</option>
+            <option value="4000">Up to ₱4,000</option>
+            <option value="6000">Up to ₱6,000</option>
+            <option value="10000">Up to ₱10,000</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="content-layout">
+        <div class="resort-grid" id="resort-grid"></div>
+        <aside class="local-guide" aria-labelledby="guide-title">
+          <div class="guide-map" aria-hidden="true">
+            <span class="map-pin pin-one"></span>
+            <span class="map-pin pin-two"></span>
+            <span class="map-pin pin-three"></span>
+            <span class="road road-one"></span>
+            <span class="road road-two"></span>
+            <strong>BONGABON</strong>
+            <small>Nueva Ecija</small>
+          </div>
+          <div class="guide-body">
+            <p class="kicker green">Local guide</p>
+            <h3 id="guide-title">Mountain air, river roads, quieter nights.</h3>
+            <p>Many Bongabon stays sit around Labi, Curva, Tugatog, Calaanan, and rural communities facing the Sierra Madre.</p>
+            <div class="guide-facts">
+              <div><span>Main access</span><strong>Nueva Ecija–Aurora Road</strong></div>
+              <div><span>Popular season</span><strong>November–May</strong></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <div aria-hidden="true">⌁</div>
+        <h3>No stays match these filters.</h3>
+        <p>Try a higher budget or choose another resort type.</p>
+        <button type="button" id="clear-filters">Clear filters</button>
+      </div>
+    </section>
+
+    <section class="how-it-works" id="how" aria-labelledby="how-title">
+      <div class="how-heading">
+        <p class="kicker light">Simple and transparent</p>
+        <h2 id="how-title">From resort search to booking request.</h2>
+      </div>
+      <ol>
+        <li><span>01</span><div><h3>Search</h3><p>Choose your dates, group size, and preferred budget.</p></div></li>
+        <li><span>02</span><div><h3>Compare</h3><p>Review the location, amenities, capacity, and available public rates.</p></div></li>
+        <li><span>03</span><div><h3>Request</h3><p>Send your booking details and wait for confirmation from the property.</p></div></li>
+      </ol>
+      <p class="availability-notice"><strong>Important:</strong> Resort calendars are not live-synced yet. Availability and final pricing must be confirmed by the property before payment.</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo footer-logo" href="#top">
+      <span class="logo-mark" aria-hidden="true">7</span>
+      <span class="logo-word">SevenScale Digital</span>
+    </a>
+    <p>A simpler way to discover Bongabon resorts and start a booking request.</p>
+    <div class="footer-links"><a href="#resorts">Resorts</a><a href="#how">How it works</a></div>
+    <p class="disclaimer">Independent directory prototype by SevenScale Digital. Listing details, rates, and availability may change and must be confirmed with each property.</p>
+  </footer>
+
+  <dialog class="booking-dialog" id="booking-dialog" aria-labelledby="booking-title">
+    <button class="dialog-close" type="button" data-close="booking-dialog" aria-label="Close">×</button>
+    <div class="dialog-layout">
+      <div class="booking-summary">
+        <img id="booking-image" alt="">
+        <div>
+          <p class="kicker light">Booking request</p>
+          <h2 id="booking-resort">Resort name</h2>
+          <p id="booking-location">Bongabon, Nueva Ecija</p>
+          <dl>
+            <div><dt>Dates</dt><dd id="booking-dates">—</dd></div>
+            <div><dt>Guests</dt><dd id="booking-guests">—</dd></div>
+            <div><dt>Starting rate</dt><dd id="booking-rate">—</dd></div>
+          </dl>
+          <p class="summary-note">The resort will confirm final pricing and availability. No payment is collected at this step.</p>
+        </div>
+      </div>
+      <div class="booking-form-wrap" id="booking-form-step">
+          <p class="kicker green">Your details</p>
+          <h2 id="booking-title">How should we contact you?</h2>
+        <form id="booking-form">
+          <div class="field-row">
+            <label><span>Full name</span><input name="name" type="text" autocomplete="name" required placeholder="Your full name"></label>
+            <label><span>Mobile number</span><input name="mobile" type="tel" autocomplete="tel" required placeholder="09XX XXX XXXX" pattern="[0-9+() -]{7,20}"></label>
+          </div>
+          <label><span>Email <small>optional</small></span><input name="email" type="email" autocomplete="email" placeholder="email@example.com"></label>
+          <label><span>Message <small>optional</small></span><textarea name="message" rows="3" placeholder="Celebration, children in the group, or a special request"></textarea></label>
+          <label class="consent"><input type="checkbox" required><span>I agree to be contacted about this booking request.</span></label>
+          <button class="primary-action" type="submit">Submit request <span aria-hidden="true">→</span></button>
+        </form>
+      </div>
+      <div class="confirmation" id="confirmation-step" hidden>
+        <span class="confirmation-icon" aria-hidden="true">✓</span>
+        <p class="kicker green">Request saved</p>
+        <h2>Your Bongabon stay is one step closer.</h2>
+        <p>Reference: <strong id="reference-code">BNG-000000</strong></p>
+        <div class="prototype-note">In this prototype, the request is saved on your device. Resort-owner accounts or a booking-partner integration are still required to send it automatically to the property.</div>
+        <button class="primary-action" type="button" data-close="booking-dialog">Done</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="requests-dialog" id="requests-dialog" aria-labelledby="requests-title">
+    <button class="dialog-close" type="button" data-close="requests-dialog" aria-label="Close">×</button>
+    <div class="requests-head">
+      <p class="kicker green">My requests</p>
+      <h2 id="requests-title">Bookings you have started.</h2>
+    </div>
+    <div id="requests-list"></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
