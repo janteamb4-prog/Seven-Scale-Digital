@@ -188,7 +188,10 @@
           <label><span>Email <small>optional</small></span><input name="email" type="email" autocomplete="email" placeholder="email@example.com"></label>
           <label><span>Message <small>optional</small></span><textarea name="message" rows="3" placeholder="Celebration, children in the group, or a special request"></textarea></label>
           <label class="consent"><input type="checkbox" required><span>I agree to be contacted about this booking request.</span></label>
-          <button class="primary-action" type="submit">Submit request <span aria-hidden="true">→</span></button>
+          <div class="booking-actions">
+            <button class="secondary-action" type="button" data-close="booking-dialog">Cancel</button>
+            <button class="primary-action" type="submit">Submit request <span aria-hidden="true">→</span></button>
+          </div>
         </form>
       </div>
       <div class="confirmation" id="confirmation-step" hidden>
